@@ -20,6 +20,7 @@ package edu.ncsu.csc326.coffeemaker;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -174,6 +175,7 @@ public class CoffeeMakerTest {
 	}
 
 	/**
+	 * BUG 1
 	 * Given a coffee maker with 3 valid recipes
 	 * When we add a 4th recipe
 	 * Then we get a false response.
@@ -310,8 +312,115 @@ public class CoffeeMakerTest {
 	}
 
 	/* UC3: DELETE RECIPE */
+
+	/**
+	 * BUG 2
+	 * Given a coffee maker with no recipes
+	 * When we add a valid recipe and then delete the recipe
+	 * Then we get a coffee maker with no recipes.
+	 */
+	@Test
+	public void testDeleteRecipe() {
+		coffeeMaker.addRecipe(recipe1); // position 0
+		coffeeMaker.deleteRecipe(0);
+		assertEquals(null, coffeeMaker.getRecipes()[0]);
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we delete a recipe
+	 * Then we get a null response.
+	 */
+
+	@Test
+	public void testDeleteEmptyRecipeBook() {
+		assertNull(coffeeMaker.deleteRecipe(0));
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we delete a recipe with an invalid index
+	 * Then we get a null response.
+	 */
+
+	@Test
+	public void testDeleteOutOfBoundRecipe() {
+		coffeeMaker.addRecipe(recipe1); // position 0
+		assertNull(coffeeMaker.deleteRecipe(2));
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we delete a recipe with an invalid index
+	 * Then we get a null response.
+	 */
+	// @Test
+	// public void testMakeCoffeeDeleteRecipe3() {
+	// assertEquals(null, coffeeMaker.deleteRecipe(-1));
+	// }
+
 	/* UC4: EDIT RECIPE */
+
+	/**
+	 * BUG 3
+	 * Given a coffee maker with no recipes
+	 * When we add a valid recipe and then edit the recipe
+	 * Then we get a coffee maker with a recipe corresponding to the new data.
+	 */
+	@Test
+	public void testEditRecipeName() {
+		coffeeMaker.addRecipe(recipe1);
+
+		String name = recipe1.getName();
+		coffeeMaker.editRecipe(0, recipe2);
+		assertEquals(name, coffeeMaker.getRecipes()[0].getName());
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we add a valid recipe and then edit the recipe
+	 * Then we get a coffee maker with a recipe corresponding to the new data.
+	 */
+	@Test
+	public void testEditRecipePrice() {
+		coffeeMaker.addRecipe(recipe1);
+		coffeeMaker.editRecipe(0, recipe2);
+		assertEquals(recipe2.getPrice(), coffeeMaker.getRecipes()[0].getPrice());
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we edit a recipe
+	 * Then we get a null response.
+	 */
+	@Test
+	public void testEditEmptyRecipe() {
+		assertEquals(null, coffeeMaker.editRecipe(0, recipe1));
+	}
+
+	/**
+	 * Given a coffee maker with one recipe
+	 * When we edit a recipe out of bounds
+	 * Then we get a null response.
+	 */
+	@Test
+	public void testEditInvalidIndexRecipe() {
+		coffeeMaker.addRecipe(recipe1);
+		assertEquals(null, coffeeMaker.editRecipe(1, recipe1));
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we edit a recipe with an invalid index
+	 * Then we get a null response.
+	 */
+	// @Test
+	// public void testMakeCoffeeEditRecipe3() {
+	// assertEquals(null, coffeeMaker.editRecipe(-1, recipe2));
+	// }
+
 	/* UC5: ADD INVENTORY */
+
 	/* UC6: CHECK INVENTORY */
 	/* UC7: PURCHASE BEVRAGE */
 
