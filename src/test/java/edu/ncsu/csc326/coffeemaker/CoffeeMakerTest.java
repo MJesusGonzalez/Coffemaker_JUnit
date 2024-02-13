@@ -526,6 +526,65 @@ public class CoffeeMakerTest {
 	}
 
 	/* UC6: CHECK INVENTORY */
+	/**
+	 * Given a coffee maker
+	 * When we check inventory
+	 * Then we get a string representation of the default inventory
+	 */
+	@Test
+	public void testCheckInventory() throws InventoryException {
+		String expectedString = "Coffee: 15\nMilk: 15\nSugar: 15\nChocolate: 15\n";
+		assertEquals(expectedString, coffeeMaker.checkInventory());
+	}
+
+	/**
+	 * Given a coffee maker
+	 * When we add coffee and check inventory
+	 * Then we get a string representation of the new inventory
+	 */
+	@Test
+	public void testCheckInventoryAddCoffee() throws InventoryException {
+		coffeeMaker.addInventory("1", "0", "0", "0");
+		String expectedString = "Coffee: 16\nMilk: 15\nSugar: 15\nChocolate: 15\n";
+		assertEquals(expectedString, coffeeMaker.checkInventory());
+	}
+
+	/**
+	 * Given a coffee maker
+	 * When we add milk and check inventory
+	 * Then we get a string representation of the new inventory
+	 */
+	@Test
+	public void testCheckInventoryAddMilk() throws InventoryException {
+		coffeeMaker.addInventory("0", "1", "0", "0");
+		String expectedString = "Coffee: 15\nMilk: 16\nSugar: 15\nChocolate: 15\n";
+		assertEquals(expectedString, coffeeMaker.checkInventory());
+	}
+
+	/**
+	 * BUG 4
+	 * Given a coffee maker
+	 * When we add sugar and check inventory
+	 * Then we get a string representation of the new inventory
+	 */
+	@Test
+	public void testCheckInventoryAddSugar() throws InventoryException {
+		coffeeMaker.addInventory("0", "0", "1", "0");
+		String expectedString = "Coffee: 15\nMilk: 15\nSugar: 16\nChocolate: 15\n";
+		assertEquals(expectedString, coffeeMaker.checkInventory());
+	}
+
+	/**
+	 * Given a coffee maker
+	 * When we add Chocolate and check inventory
+	 * Then we get a string representation of the new inventory
+	 */
+	@Test
+	public void testCheckInventoryAddChocolate() throws InventoryException {
+		coffeeMaker.addInventory("0", "0", "0", "1");
+		String expectedString = "Coffee: 15\nMilk: 15\nSugar: 15\nChocolate: 16\n";
+		assertEquals(expectedString, coffeeMaker.checkInventory());
+	}
 
 	/* UC7: PURCHASE BEVRAGE */
 
