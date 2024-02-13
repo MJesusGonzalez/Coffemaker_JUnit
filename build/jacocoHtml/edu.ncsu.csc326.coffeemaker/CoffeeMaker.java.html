@@ -52,7 +52,7 @@ public class CoffeeMaker {
 	 * @return String
 	 */
 	public String deleteRecipe(int recipeToDelete) {
-<span class="nc" id="L55">		return recipeBook.deleteRecipe(recipeToDelete);</span>
+<span class="fc" id="L55">		return recipeBook.deleteRecipe(recipeToDelete);</span>
 	}
 	
 	/**
@@ -63,7 +63,7 @@ public class CoffeeMaker {
 	 * @return String
 	 */
 	public String editRecipe(int recipeToEdit, Recipe r) {
-<span class="nc" id="L66">		return recipeBook.editRecipe(recipeToEdit, r);</span>
+<span class="fc" id="L66">		return recipeBook.editRecipe(recipeToEdit, r);</span>
 	}
     
     /**
@@ -86,7 +86,7 @@ public class CoffeeMaker {
      * @return Inventory
      */
     public synchronized String checkInventory() {
-<span class="nc" id="L89">        return inventory.toString();</span>
+<span class="fc" id="L89">        return inventory.toString();</span>
     }
     
     /**
@@ -99,16 +99,16 @@ public class CoffeeMaker {
     public synchronized int makeCoffee(int recipeToPurchase, int amtPaid) {
 <span class="fc" id="L100">        int change = 0;</span>
         
-<span class="pc bpc" id="L102" title="1 of 2 branches missed.">        if (getRecipes()[recipeToPurchase] == null) {</span>
-<span class="nc" id="L103">        	change = amtPaid;</span>
-<span class="pc bpc" id="L104" title="1 of 2 branches missed.">        } else if (getRecipes()[recipeToPurchase].getPrice() &lt;= amtPaid) {</span>
-<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        	if (inventory.useIngredients(getRecipes()[recipeToPurchase])) {</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        if (getRecipes()[recipeToPurchase] == null) {</span>
+<span class="fc" id="L103">        	change = amtPaid;</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        } else if (getRecipes()[recipeToPurchase].getPrice() &lt;= amtPaid) {</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        	if (inventory.useIngredients(getRecipes()[recipeToPurchase])) {</span>
 <span class="fc" id="L106">        		change = amtPaid - getRecipes()[recipeToPurchase].getPrice();</span>
         	} else {
-<span class="nc" id="L108">        		change = amtPaid;</span>
+<span class="fc" id="L108">        		change = amtPaid;</span>
         	}
         } else {
-<span class="nc" id="L111">        	change = amtPaid;</span>
+<span class="fc" id="L111">        	change = amtPaid;</span>
         }
         
 <span class="fc" id="L114">        return change;</span>

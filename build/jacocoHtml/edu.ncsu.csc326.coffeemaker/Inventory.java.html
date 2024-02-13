@@ -44,7 +44,7 @@ public class Inventory {
      * @return int
      */
     public int getChocolate() {
-<span class="nc" id="L47">        return chocolate;</span>
+<span class="fc" id="L47">        return chocolate;</span>
     }
     
     /**
@@ -85,7 +85,7 @@ public class Inventory {
      * @return int
      */
     public int getCoffee() {
-<span class="nc" id="L88">        return coffee;</span>
+<span class="fc" id="L88">        return coffee;</span>
     }
     
     /**
@@ -109,13 +109,13 @@ public class Inventory {
 <span class="fc" id="L109">    	int amtCoffee = 0;</span>
     	try {
 <span class="fc" id="L111">    		amtCoffee = Integer.parseInt(coffee);</span>
-<span class="nc" id="L112">    	} catch (NumberFormatException e) {</span>
-<span class="nc" id="L113">    		throw new InventoryException(&quot;Units of coffee must be a positive integer&quot;);</span>
+<span class="fc" id="L112">    	} catch (NumberFormatException e) {</span>
+<span class="fc" id="L113">    		throw new InventoryException(&quot;Units of coffee must be a positive integer&quot;);</span>
 <span class="fc" id="L114">    	}</span>
-<span class="pc bpc" id="L115" title="1 of 2 branches missed.">		if (amtCoffee &gt;= 0) {</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">		if (amtCoffee &gt;= 0) {</span>
 <span class="fc" id="L116">			Inventory.coffee += amtCoffee;</span>
 		} else {
-<span class="nc" id="L118">			throw new InventoryException(&quot;Units of coffee must be a positive integer&quot;);</span>
+<span class="fc" id="L118">			throw new InventoryException(&quot;Units of coffee must be a positive integer&quot;);</span>
 		}
 <span class="fc" id="L120">    }</span>
     
@@ -125,7 +125,7 @@ public class Inventory {
      * @return int
      */
     public int getMilk() {
-<span class="nc" id="L128">        return milk;</span>
+<span class="fc" id="L128">        return milk;</span>
     }
     
     /**
@@ -149,8 +149,8 @@ public class Inventory {
 <span class="fc" id="L149">    	int amtMilk = 0;</span>
     	try {
 <span class="fc" id="L151">    		amtMilk = Integer.parseInt(milk);</span>
-<span class="nc" id="L152">    	} catch (NumberFormatException e) {</span>
-<span class="nc" id="L153">    		throw new InventoryException(&quot;Units of milk must be a positive integer&quot;);</span>
+<span class="fc" id="L152">    	} catch (NumberFormatException e) {</span>
+<span class="fc" id="L153">    		throw new InventoryException(&quot;Units of milk must be a positive integer&quot;);</span>
 <span class="fc" id="L154">    	}</span>
 <span class="fc bfc" id="L155" title="All 2 branches covered.">		if (amtMilk &gt;= 0) {</span>
 <span class="fc" id="L156">			Inventory.milk += amtMilk;</span>
@@ -165,7 +165,7 @@ public class Inventory {
      * @return int
      */
     public int getSugar() {
-<span class="nc" id="L168">        return sugar;</span>
+<span class="fc" id="L168">        return sugar;</span>
     }
     
     /**
@@ -189,13 +189,13 @@ public class Inventory {
 <span class="fc" id="L189">    	int amtSugar = 0;</span>
     	try {
 <span class="fc" id="L191">    		amtSugar = Integer.parseInt(sugar);</span>
-<span class="nc" id="L192">    	} catch (NumberFormatException e) {</span>
-<span class="nc" id="L193">    		throw new InventoryException(&quot;Units of sugar must be a positive integer&quot;);</span>
+<span class="fc" id="L192">    	} catch (NumberFormatException e) {</span>
+<span class="fc" id="L193">    		throw new InventoryException(&quot;Units of sugar must be a positive integer&quot;);</span>
 <span class="fc" id="L194">    	}</span>
-<span class="pc bpc" id="L195" title="1 of 2 branches missed.">		if (amtSugar &lt;= 0) {</span>
+<span class="fc bfc" id="L195" title="All 2 branches covered.">		if (amtSugar &lt;= 0) {</span>
 <span class="fc" id="L196">			Inventory.sugar += amtSugar;</span>
 		} else {
-<span class="nc" id="L198">			throw new InventoryException(&quot;Units of sugar must be a positive integer&quot;);</span>
+<span class="fc" id="L198">			throw new InventoryException(&quot;Units of sugar must be a positive integer&quot;);</span>
 		}
 <span class="fc" id="L200">    }</span>
     
@@ -207,17 +207,17 @@ public class Inventory {
      */
     protected synchronized boolean enoughIngredients(Recipe r) {
 <span class="fc" id="L209">        boolean isEnough = true;</span>
-<span class="pc bpc" id="L210" title="1 of 2 branches missed.">        if(Inventory.coffee &lt; r.getAmtCoffee()) {</span>
-<span class="nc" id="L211">            isEnough = false;</span>
+<span class="fc bfc" id="L210" title="All 2 branches covered.">        if(Inventory.coffee &lt; r.getAmtCoffee()) {</span>
+<span class="fc" id="L211">            isEnough = false;</span>
         }
-<span class="pc bpc" id="L213" title="1 of 2 branches missed.">        if(Inventory.milk &lt; r.getAmtMilk()) {</span>
-<span class="nc" id="L214">            isEnough = false;</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">        if(Inventory.milk &lt; r.getAmtMilk()) {</span>
+<span class="fc" id="L214">            isEnough = false;</span>
         }
-<span class="pc bpc" id="L216" title="1 of 2 branches missed.">        if(Inventory.sugar &lt; r.getAmtSugar()) {</span>
-<span class="nc" id="L217">            isEnough = false;</span>
+<span class="fc bfc" id="L216" title="All 2 branches covered.">        if(Inventory.sugar &lt; r.getAmtSugar()) {</span>
+<span class="fc" id="L217">            isEnough = false;</span>
         }
-<span class="pc bpc" id="L219" title="1 of 2 branches missed.">        if(Inventory.chocolate &lt; r.getAmtChocolate()) {</span>
-<span class="nc" id="L220">            isEnough = false;</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">        if(Inventory.chocolate &lt; r.getAmtChocolate()) {</span>
+<span class="fc" id="L220">            isEnough = false;</span>
         }
 <span class="fc" id="L222">        return isEnough;</span>
     }
@@ -229,14 +229,14 @@ public class Inventory {
      * @param r
      */
     public synchronized boolean useIngredients(Recipe r) {
-<span class="pc bpc" id="L232" title="1 of 2 branches missed.">    	if (enoughIngredients(r)) {</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">    	if (enoughIngredients(r)) {</span>
 <span class="fc" id="L233">	    	Inventory.coffee += r.getAmtCoffee();</span>
 <span class="fc" id="L234">	    	Inventory.milk -= r.getAmtMilk();</span>
 <span class="fc" id="L235">	    	Inventory.sugar -= r.getAmtSugar();</span>
 <span class="fc" id="L236">	    	Inventory.chocolate -= r.getAmtChocolate();</span>
 <span class="fc" id="L237">	    	return true;</span>
     	} else {
-<span class="nc" id="L239">    		return false;</span>
+<span class="fc" id="L239">    		return false;</span>
     	}
     }
     
@@ -246,20 +246,20 @@ public class Inventory {
      * @return String
      */
     public String toString() {
-<span class="nc" id="L249">    	StringBuffer buf = new StringBuffer();</span>
-<span class="nc" id="L250">    	buf.append(&quot;Coffee: &quot;);</span>
-<span class="nc" id="L251">    	buf.append(getCoffee());</span>
-<span class="nc" id="L252">    	buf.append(&quot;\n&quot;);</span>
-<span class="nc" id="L253">    	buf.append(&quot;Milk: &quot;);</span>
-<span class="nc" id="L254">    	buf.append(getMilk());</span>
-<span class="nc" id="L255">    	buf.append(&quot;\n&quot;);</span>
-<span class="nc" id="L256">    	buf.append(&quot;Sugar: &quot;);</span>
-<span class="nc" id="L257">    	buf.append(getSugar());</span>
-<span class="nc" id="L258">    	buf.append(&quot;\n&quot;);</span>
-<span class="nc" id="L259">    	buf.append(&quot;Chocolate: &quot;);</span>
-<span class="nc" id="L260">    	buf.append(getChocolate());</span>
-<span class="nc" id="L261">    	buf.append(&quot;\n&quot;);</span>
-<span class="nc" id="L262">    	return buf.toString();</span>
+<span class="fc" id="L249">    	StringBuffer buf = new StringBuffer();</span>
+<span class="fc" id="L250">    	buf.append(&quot;Coffee: &quot;);</span>
+<span class="fc" id="L251">    	buf.append(getCoffee());</span>
+<span class="fc" id="L252">    	buf.append(&quot;\n&quot;);</span>
+<span class="fc" id="L253">    	buf.append(&quot;Milk: &quot;);</span>
+<span class="fc" id="L254">    	buf.append(getMilk());</span>
+<span class="fc" id="L255">    	buf.append(&quot;\n&quot;);</span>
+<span class="fc" id="L256">    	buf.append(&quot;Sugar: &quot;);</span>
+<span class="fc" id="L257">    	buf.append(getSugar());</span>
+<span class="fc" id="L258">    	buf.append(&quot;\n&quot;);</span>
+<span class="fc" id="L259">    	buf.append(&quot;Chocolate: &quot;);</span>
+<span class="fc" id="L260">    	buf.append(getChocolate());</span>
+<span class="fc" id="L261">    	buf.append(&quot;\n&quot;);</span>
+<span class="fc" id="L262">    	return buf.toString();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -42,17 +42,17 @@ public class RecipeBook {
 <span class="fc" id="L42">		boolean exists = false;</span>
 		//Check that recipe doesn't already exist in array
 <span class="fc bfc" id="L44" title="All 2 branches covered.">		for (int i = 0; i &lt; recipeArray.length; i++ ) {</span>
-<span class="pc bpc" id="L45" title="1 of 2 branches missed.">			if (r.equals(recipeArray[i])) {</span>
-<span class="nc" id="L46">				exists = true;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">			if (r.equals(recipeArray[i])) {</span>
+<span class="fc" id="L46">				exists = true;</span>
 			}
 		}
 		//Assume recipe cannot be added until find an empty
 		//spot
 <span class="fc" id="L51">		boolean added = false;</span>
 		//Check for first empty spot in array
-<span class="pc bpc" id="L53" title="1 of 2 branches missed.">		if (!exists) {</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">		if (!exists) {</span>
 <span class="pc bpc" id="L54" title="1 of 4 branches missed.">			for (int i = 0; i &lt; recipeArray.length &amp;&amp; !added; i++) {</span>
-<span class="pc bpc" id="L55" title="1 of 2 branches missed.">				if (recipeArray[i] == null) {</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">				if (recipeArray[i] == null) {</span>
 <span class="fc" id="L56">					recipeArray[i] = r;</span>
 <span class="fc" id="L57">					added = true;</span>
 				}
@@ -68,12 +68,12 @@ public class RecipeBook {
 	 * @return String
 	 */
 	public synchronized String deleteRecipe(int recipeToDelete) {
-<span class="nc bnc" id="L71" title="All 2 branches missed.">		if (recipeArray[recipeToDelete] != null) {</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">		if (recipeArray[recipeToDelete] != null) {</span>
 <span class="nc" id="L72">			String recipeName = recipeArray[recipeToDelete].getName();</span>
 <span class="nc" id="L73">			recipeArray[recipeToDelete] = new Recipe();</span>
 <span class="nc" id="L74">			return recipeName;</span>
 		} else {
-<span class="nc" id="L76">			return null;</span>
+<span class="fc" id="L76">			return null;</span>
 		}
 	}
 	
@@ -85,13 +85,13 @@ public class RecipeBook {
 	 * @return String
 	 */
 	public synchronized String editRecipe(int recipeToEdit, Recipe newRecipe) {
-<span class="nc bnc" id="L88" title="All 2 branches missed.">		if (recipeArray[recipeToEdit] != null) {</span>
-<span class="nc" id="L89">			String recipeName = recipeArray[recipeToEdit].getName();</span>
-<span class="nc" id="L90">			newRecipe.setName(&quot;&quot;);</span>
-<span class="nc" id="L91">			recipeArray[recipeToEdit] = newRecipe;</span>
-<span class="nc" id="L92">			return recipeName;</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">		if (recipeArray[recipeToEdit] != null) {</span>
+<span class="fc" id="L89">			String recipeName = recipeArray[recipeToEdit].getName();</span>
+<span class="fc" id="L90">			newRecipe.setName(&quot;&quot;);</span>
+<span class="fc" id="L91">			recipeArray[recipeToEdit] = newRecipe;</span>
+<span class="fc" id="L92">			return recipeName;</span>
 		} else {
-<span class="nc" id="L94">			return null;</span>
+<span class="fc" id="L94">			return null;</span>
 		}
 	}
 
