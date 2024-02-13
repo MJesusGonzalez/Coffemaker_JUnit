@@ -132,4 +132,187 @@ public class CoffeeMakerTest {
 		assertEquals(25, coffeeMaker.makeCoffee(0, 75));
 	}
 
+	/* UC2: ADD RECIPE */
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we add a valid recipe
+	 * Then we get a coffee maker with one recipe.
+	 */
+	@Test
+	public void testAddRecipeValid() {
+		coffeeMaker.addRecipe(recipe1);
+		assertNotEquals(null, coffeeMaker.getRecipes()[0]);
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we add 3 valid recipes
+	 * Then we get a coffee maker with 3 recipes.
+	 */
+	@Test
+	public void testAdd3RecipeValid() {
+		coffeeMaker.addRecipe(recipe1);
+		coffeeMaker.addRecipe(recipe2);
+		coffeeMaker.addRecipe(recipe3);
+		assertNotEquals(null, coffeeMaker.getRecipes()[0]);
+		assertNotEquals(null, coffeeMaker.getRecipes()[1]);
+		assertNotEquals(null, coffeeMaker.getRecipes()[2]);
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we add a recipe with the same name as an existing recipe
+	 * Then we get a false response.
+	 */
+	@Test
+	public void testAddRecipeInvalidName() {
+		coffeeMaker.addRecipe(recipe3);
+		Recipe recipe = new Recipe();
+		recipe.setName(recipe3.getName());
+		assertEquals(false, coffeeMaker.addRecipe(recipe));
+	}
+
+	/**
+	 * Given a coffee maker with 3 valid recipes
+	 * When we add a 4th recipe
+	 * Then we get a false response.
+	 */
+	@Test
+	public void testAddMoreRecipeThanPermited() {
+		coffeeMaker.addRecipe(recipe1);
+		coffeeMaker.addRecipe(recipe2);
+		coffeeMaker.addRecipe(recipe3);
+		assertNotEquals(null, coffeeMaker.getRecipes()[0]);
+		assertNotEquals(null, coffeeMaker.getRecipes()[1]);
+		assertNotEquals(null, coffeeMaker.getRecipes()[2]);
+		assertEquals(false, coffeeMaker.addRecipe(recipe4));
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we add a recipe with invalid price
+	 * Then we get a recipe exception.
+	 * 
+	 * @throws RecipeException
+	 */
+	@Test
+	public void testInvalidPriceRecipe() throws RecipeException {
+		try {
+			recipe1.setPrice("-100");
+		} catch (RecipeException e) {
+			try {
+				recipe1.setPrice("100.50");
+			} catch (RecipeException e2) {
+				try {
+					recipe1.setPrice("abc");
+				} catch (RecipeException e3) {
+
+				}
+			}
+		}
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we add a recipe with invalid unit of coffe
+	 * Then we get a recipe exception.
+	 * 
+	 * @throws RecipeException
+	 */
+	@Test
+	public void testInvalidUnitCoffe() throws RecipeException {
+		try {
+			recipe1.setAmtCoffee("-100");
+		} catch (RecipeException e) {
+			try {
+				recipe1.setAmtCoffee("100.50");
+			} catch (RecipeException e2) {
+				try {
+					recipe1.setAmtCoffee("abc");
+				} catch (RecipeException e3) {
+
+				}
+			}
+		}
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we add a recipe with invalid unit of sugar
+	 * Then we get a recipe exception.
+	 * 
+	 * @throws RecipeException
+	 */
+	@Test
+	public void testInvalidUnitSugar() throws RecipeException {
+		try {
+			recipe1.setAmtSugar("-100");
+		} catch (RecipeException e) {
+			try {
+				recipe1.setAmtSugar("100.50");
+			} catch (RecipeException e2) {
+				try {
+					recipe1.setAmtSugar("abc");
+				} catch (RecipeException e3) {
+
+				}
+			}
+		}
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we add a recipe with invalid unit of milk
+	 * Then we get a recipe exception.
+	 * 
+	 * @throws RecipeException
+	 */
+	@Test
+	public void testInvalidUnitMilk() throws RecipeException {
+		try {
+			recipe1.setAmtMilk("-100");
+		} catch (RecipeException e) {
+			try {
+				recipe1.setAmtMilk("100.50");
+			} catch (RecipeException e2) {
+				try {
+					recipe1.setAmtMilk("abc");
+				} catch (RecipeException e3) {
+
+				}
+			}
+		}
+	}
+
+	/**
+	 * Given a coffee maker with no recipes
+	 * When we add a recipe with invalid unit of chocolate
+	 * Then we get a recipe exception.
+	 * 
+	 * @throws RecipeException
+	 */
+	@Test
+	public void testInvalidUnitChocolate() throws RecipeException {
+		try {
+			recipe1.setAmtChocolate("-100");
+		} catch (RecipeException e) {
+			try {
+				recipe1.setAmtChocolate("100.50");
+			} catch (RecipeException e2) {
+				try {
+					recipe1.setAmtChocolate("abc");
+				} catch (RecipeException e3) {
+
+				}
+			}
+		}
+	}
+
+	/* UC3: DELETE RECIPE */
+	/* UC4: EDIT RECIPE */
+	/* UC5: ADD INVENTORY */
+	/* UC6: CHECK INVENTORY */
+	/* UC7: PURCHASE BEVRAGE */
+
 }
